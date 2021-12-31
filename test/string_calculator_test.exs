@@ -26,4 +26,10 @@ defmodule StringCalculatorTest do
       assert StringCalculator.add("1\n2,3") == 6
     end
   end
+
+  describe "given an string of numbers with a custom delimiter" do
+    test "return the sum of numbers" do
+      assert StringCalculator.add("//;\n1;2") == 3
+    end
+  end
 end
