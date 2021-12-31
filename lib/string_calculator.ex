@@ -1,12 +1,8 @@
 defmodule StringCalculator do
-  def add(numbers) when numbers != "" do
+  def add(numbers) do
     case String.split(numbers, ",") do
-      [num1] -> String.to_integer(num1)
-      [num1, num2] -> String.to_integer(num1) + String.to_integer(num2)
+      [""] -> 0
+      numbers -> Enum.reduce(numbers, 0, fn number, acc -> String.to_integer(number) + acc end)
     end
-  end
-
-  def add(_) do
-    0
   end
 end

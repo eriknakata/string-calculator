@@ -15,5 +15,9 @@ defmodule StringCalculatorTest do
     test "return the sum of tow numbers" do
       assert StringCalculator.add("1,2") == 3
     end
+
+    test "return the sum of unknown amount of numbers" do
+      assert StringCalculator.add("1,2,3,4") == 10
+    end
   end
 end
