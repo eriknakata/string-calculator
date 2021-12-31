@@ -20,4 +20,10 @@ defmodule StringCalculatorTest do
       assert StringCalculator.add("1,2,3,4") == 10
     end
   end
+
+  describe "given an string of numbers separated by comma and new_line" do
+    test "return the sum of numbers" do
+      assert StringCalculator.add("1\n2,3") == 6
+    end
+  end
 end
