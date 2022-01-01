@@ -1,16 +1,25 @@
 defmodule StringCalculator do
-  def add(string_numbers) do
-    {values, delimiter} = extract_values_and_numbers(string_numbers)
-
-    extract_numbers(values, delimiter) |> sum()
-  end
-
-  defp sum(numbers) when numbers == [""] do
+  def add(string_numbers) when string_numbers == "" do
     0
   end
 
+  def add(string_numbers) do
+    {values, delimiter} = extract_values_and_numbers(string_numbers)
+
+    extract_numbers(values, delimiter) |> validate_numbers() |> sum()
+  end
+
+  defp validate_numbers(numbers) do
+    negative_numbers = Enum.filter(numbers, fn number -> number < 0 end)
+
+    case negative_numbers do
+      numbers when numbers != [] -> raise "negatives not allowed #{Enum.join(numbers, ",")}"
+      _ -> numbers
+    end
+  end
+
   defp sum(numbers) do
-    Enum.reduce(numbers, 0, fn number, acc -> String.to_integer(number) + acc end)
+    Enum.reduce(numbers, 0, fn number, acc -> number + acc end)
   end
 
   defp has_delimiter(string_numbers) do
@@ -35,6 +44,6 @@ defmodule StringCalculator do
   end
 
   defp extract_numbers(string, delimiter) do
-    String.split(string, delimiter)
+    String.split(string, delimiter) |> Enum.map(fn number -> String.to_integer(number) end)
   end
 end

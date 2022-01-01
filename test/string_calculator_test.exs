@@ -32,4 +32,18 @@ defmodule StringCalculatorTest do
       assert StringCalculator.add("//;\n1;2") == 3
     end
   end
+
+  describe "given an string with negative numbers" do
+    test "display a message with the negative number" do
+      assert_raise RuntimeError, "negatives not allowed -3", fn ->
+        StringCalculator.add("1,2,-3,4") == 10
+      end
+    end
+
+    test "display a message with the negative numbers" do
+      assert_raise RuntimeError, "negatives not allowed -3,-4", fn ->
+        StringCalculator.add("1,2,-3,-4") == 10
+      end
+    end
+  end
 end
