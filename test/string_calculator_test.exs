@@ -46,4 +46,10 @@ defmodule StringCalculatorTest do
       end
     end
   end
+
+  describe "given a string with numbers bigger" do
+    test "should not sum numbers bigger than 1000" do
+      assert StringCalculator.add("1,2,1000,1001") == 1003
+    end
+  end
 end

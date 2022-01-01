@@ -6,7 +6,11 @@ defmodule StringCalculator do
   def add(string_numbers) do
     {values, delimiter} = extract_values_and_numbers(string_numbers)
 
-    extract_numbers(values, delimiter) |> validate_numbers() |> sum()
+    extract_numbers(values, delimiter) |> validate_numbers() |> filter_invalid_numbers |> sum()
+  end
+
+  defp filter_invalid_numbers(numbers) do
+    numbers |> Enum.filter(fn number -> number <= 1000 end)
   end
 
   defp validate_numbers(numbers) do
