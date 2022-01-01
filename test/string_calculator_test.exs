@@ -31,6 +31,14 @@ defmodule StringCalculatorTest do
     test "return the sum of numbers" do
       assert StringCalculator.add("//;\n1;2") == 3
     end
+
+    test "delimiters can be of any length" do
+      assert StringCalculator.add("//[***]\n1***2***3") == 6
+    end
+
+    test "delimiters can be of any length $" do
+      assert StringCalculator.add("//[$$$$]\n1$$$$2$$$$3") == 6
+    end
   end
 
   describe "given an string with negative numbers" do

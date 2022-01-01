@@ -44,7 +44,16 @@ defmodule StringCalculator do
 
   defp extract_delimiter(string_numbers) do
     [delimiter, _] = String.split(string_numbers, "\n", parts: 2)
-    String.at(delimiter, 2)
+
+    case String.contains?(delimiter, ["[", "]"]) do
+      true ->
+        String.slice(delimiter, 2, String.length(delimiter))
+        |> String.replace_leading("[", "")
+        |> String.replace_suffix("]", "")
+
+      false ->
+        String.at(delimiter, 2)
+    end
   end
 
   defp extract_numbers(string, delimiter) do
