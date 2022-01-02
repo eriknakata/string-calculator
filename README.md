@@ -1,21 +1,30 @@
 # StringCalculator
 
-**TODO: Add description**
+Implementation of the kata [String calculator](https://osherove.com/tdd-kata-1)
 
-## Installation
+<!-- # Before you start:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `string_calculator` to your list of dependencies in `mix.exs`:
+- Try not to read ahead.
+- Do one task at a time. The trick is to learn to work incrementally.
+- Make sure you only test for correct inputs. there is no need to test for invalid inputs for this kata
 
-```elixir
-def deps do
-  [
-    {:string_calculator, "~> 0.1.0"}
-  ]
-end
-```
+## String Calculator
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/string_calculator>.
+1. Create a simple String calculator with a method signature:
 
+  ```elixir
+  def Add(string_numbers) do
+    
+  end
+  ```
+
+  The method can take up to two numbers, separated by commas, and will return their sum. 
+  for example "" or "1" or "1,2" as inputs.
+  (for an empty string it will return 0)
+
+  Hints:
+  - Start with the simplest test case of an empty string and move to one and two numbers
+  - Remember to solve things as simply as possible so that you force yourself to write tests you did not think about
+  - Remember to refactor after each passing test
+
+2. Allow the Add method to handle an unknown amount of numbers -->
